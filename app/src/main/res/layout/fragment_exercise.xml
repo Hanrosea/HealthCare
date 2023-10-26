@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.healthcare.healthing.ExerciseFragment"
+    android:orientation="vertical"
+    android:background="#000000" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/btn_squats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:contentDescription="스쿼트"
+            android:padding="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/squat_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lotte"
+            android:text="스쿼트"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="75dp" />
+
+        <TextView
+            android:layout_gravity="bottom|right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lotte"
+            android:text="SQUAT"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#C0C0C0"
+            android:textSize="30dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/btn_pushups"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:contentDescription="푸쉬업"
+            android:padding="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/push_up_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lotte"
+            android:text="푸쉬업"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="75dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:fontFamily="@font/lotte"
+            android:text="PUSH UP"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#C0C0C0"
+            android:textSize="30dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/btn_pullup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:contentDescription="풀 업"
+            android:padding="0.5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/poll_up_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lotte"
+            android:text="풀 업"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="75dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:fontFamily="@font/lotte"
+            android:text="PULL UP"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#C0C0C0"
+            android:textSize="30dp" />
+    </FrameLayout>
+
+</LinearLayout>

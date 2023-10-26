@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HellThing"
+        tools:targetApi="31">
+
+        <service
+            android:name="com.healthcare.hellthing.FCM.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.healthcare.healthing.RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.RecordListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.Guide.SquatGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.Guide.PushUpGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.Guide.PullupGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.java.CameraXLivePreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.UserdataActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.SubMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.healthcare.healthing.TutorialActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name="com.healthcare.healthing.LogoActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.healthcare.healthing.MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

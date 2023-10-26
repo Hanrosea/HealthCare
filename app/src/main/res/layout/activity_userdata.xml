@@ -1,0 +1,310 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    tools:context="com.healthcare.healthing.UserdataActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/logo" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/lotte_bold"
+            android:text="HellThing"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lotte"
+            android:text="회원가입"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Icon_name"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="😁"
+                android:textSize="23dp"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+            <TextView
+                android:id="@+id/txtName2"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-3dp"
+                android:paddingTop="1dp"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:text=""
+                android:background="@drawable/border_background" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Icon_sex"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="👫"
+                android:textColor="@color/black"
+                android:textSize="23dp" />
+
+            <RadioGroup
+                android:id="@+id/sex_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="남"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/female_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="여"
+                    android:textColor="@color/black" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="나이"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Icon_age"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="나이"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+            <EditText
+                android:id="@+id/age_text"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-3dp"
+                android:paddingTop="1dp"
+                android:paddingStart="10dp"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:textSize="20dp"
+                android:hint="25"
+                android:textColorHint="@color/gray"
+                android:maxLength="3"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/age_limit"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="95dp"
+            android:layout_gravity="center"
+            android:text="0/3"
+            android:textColor="#777777" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Icon_height"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="키"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+            <EditText
+                android:id="@+id/height_text"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-3dp"
+                android:paddingTop="1dp"
+                android:paddingStart="10dp"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:textSize="20dp"
+                android:hint="175"
+                android:textColorHint="@color/gray"
+                android:maxLength="3"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/height_limit"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="95dp"
+            android:layout_gravity="center"
+            android:text="0/3"
+
+            android:textColor="#777777" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Icon_weight"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="몸무게"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+            <EditText
+                android:id="@+id/weight_text"
+                android:layout_width="280dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-3dp"
+                android:paddingTop="1dp"
+                android:paddingStart="10dp"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:textSize="20dp"
+                android:hint="75"
+                android:textColorHint="@color/gray"
+                android:maxLength="3"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:background="@drawable/border_background" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/weight_limit"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="95dp"
+            android:layout_gravity="center"
+            android:text="0/3"
+            android:textColor="#777777" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_move2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="정보저장"
+            android:fontFamily="@font/lotte_bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:layout_margin="1dp"
+            tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/btn_move3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="생략"
+            android:fontFamily="@font/lotte_bold"
+            android:insetTop="0dp"
+            android:layout_weight="3"
+            android:insetBottom="0dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF0000"
+            android:layout_margin="1dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</LinearLayout>
