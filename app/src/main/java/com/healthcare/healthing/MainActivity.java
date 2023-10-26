@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        viewPager.setCurrentItem(1); // 하체 페이지를 중앙으로 설정
+        viewPager.setCurrentItem(1); // 운동 페이지를 중앙으로 설정
 
 
     }

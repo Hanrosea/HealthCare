@@ -130,8 +130,8 @@ public class PushUp implements HealthKind {
         PointF rightShoulder = null;
         PointF leftHip = null;
         PointF rightHip = null;
-        PointF leftKnee = null;
-        PointF rightKnee = null;
+        PointF leftAnkle= null;
+        PointF rightAnkle = null;
 
         // 어깨, 엉덩이, 무릎 중심점을 계산합니다.
         if (pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER) != null) {
@@ -147,22 +147,24 @@ public class PushUp implements HealthKind {
             rightHip = pose.getPoseLandmark(PoseLandmark.RIGHT_HIP).getPosition();
         }
         if (pose.getPoseLandmark(PoseLandmark.LEFT_KNEE) != null) {
-            leftKnee = pose.getPoseLandmark(PoseLandmark.LEFT_KNEE).getPosition();
+            leftAnkle = pose.getPoseLandmark(PoseLandmark.LEFT_KNEE).getPosition();
         }
         if (pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE) != null) {
-            rightKnee = pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE).getPosition();
+            rightAnkle = pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE).getPosition();
         }
 
         if (leftShoulder != null && rightShoulder != null
                 && leftHip != null && rightHip != null
-                && leftKnee != null && rightKnee != null) {
+                && leftAnkle != null && rightAnkle != null) {
             // 어깨 중심점과 엉덩이 중심점을 연결한 선과
             // 엉덩이 중심점과 무릎 중심점을 연결한 선 사이의 각도를 계산합니다.
-            double angleShoulderHipKnee = calculateWaistAngle(leftShoulder, leftHip, leftKnee);
-            double angleHipKneeShoulder = calculateWaistAngle(leftHip, leftKnee, leftShoulder);
+            double leftAngle = calculateWaistAngle(leftShoulder, leftHip, leftAnkle);
+            double rightAngle = calculateWaistAngle(leftShoulder, leftHip, leftAnkle);
+
+            double dataAngle = Math.min(leftAngle,rightAngle);
 
             // 두 선이 벌어진 각도는 두 각도의 합이 됩니다.
-            waistAngle = angleShoulderHipKnee;
+            waistAngle = dataAngle;
             Log.d("PushUp", "waistAngle: " + waistAngle);
         }
     }

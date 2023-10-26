@@ -258,11 +258,10 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
 
                                 temp++;
                             }
-                            if(num == 12){
+                            if(num == 100){
                                 cameraProvider.unbind(analysisUseCase);
                                 imageProcessor.stop();
                                 Intent intent = new Intent(CameraXLivePreviewActivity.this, ResultActivity.class);
-
 
                                 intent.putExtra("waist_banding", waist_banding);
                                 intent.putExtra("Health", Health);

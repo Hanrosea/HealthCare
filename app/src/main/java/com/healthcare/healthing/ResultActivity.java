@@ -674,15 +674,10 @@ public class ResultActivity extends AppCompatActivity {
             user.setContractPercentage(sum / num);
         }
 
-        if(user.getMaxAnglePercentage() <= 5){
-            user.setFbM("가동범위가 너무 대체적으로 적습니다. 보통 가동범위가 적으신 분들은 근육의 유연성이 적어서 그렇습니다.\n운동이 끝난 후 스트레칭을 해주며 근육을 늘려주세요. 가동범위가 점차 늘어날 것입니다.");
-        }
-        else if(user.getMaxAnglePercentage() <= 10){
+        if(user.getMaxAnglePercentage() <= 10){
             user.setFbM("가동범위가 적습니다. 한동작 한동작 천천히 가동범위를 늘려보면서 각각의 횟수마다 퀄리티를 높혀주세요. 좋은 효과가 나올 것입니다.");
         }
-        else if(user.getMaxAnglePercentage() <= 15){
-            user.setFbM("대체적으로 안정적입니다.");
-        }
+
         else if(user.getMaxAnglePercentage() <= 20){
             user.setFbM("훌륭합니다.");
         }
@@ -760,27 +755,6 @@ public class ResultActivity extends AppCompatActivity {
                 user.setGood(user.getGood() + 1);
             }
             countPushUp++;
-        }
-
-        if(user.getWaist() >= user.getGood() / 2 && user.getWaist() != 0){
-            user.setFb(user.getFb() + "\n허리가 과도하게 내려가는 자세에 주의하세요.\n 몸이 일직선을 유지하도록 하여 허리와 엉덩이를 효과적으로 지탱하며 운동하실 수 있도록 노력해주세요.\n" +
-                    "허리를 펴고 복부 근육을 긴장시킨 상태에서 푸시업을 수행하면 부상의 위험을 줄이고 근력 향상에 도움이 됩니다.\n");
-        }
-        if(user.getBig() + user.getSmall() >= num / 2 && user.getBig() + user.getSmall() != 0){
-            user.setFb(user.getFb() + "\n대부분의 자세에서 가동범위가 크거나 작습니다.\n가동범위가 클 경우 팔꿈치에 가해지는 부하가 심해집니다.\n작을 경우에는 스트렝스가 적어 자극이 적을 것입니다.\n" +
-                    "영상촬영을 통해 가동범위가 어떤지 확인하며 모범자세와의 차이점을 확인하세요.\n몸 전체가 아닌 어느 한 부분이 잘려서 찍힌거나 촬영 각도가 문제 있을 시 다시 측정해주십시오.\n");
-        }
-        if(user.getTension() >= num / 2 && user.getTension() != 0){
-            user.setFb(user.getFb() + "\n일어났을 때 팔을 완전히 펴버리면 근육의 긴장이 풀리게 됩니다.\n긴장이 풀릴 시 다음 동작 수행에서 부상 위험과 관절 통증, 근육 스트렝스 저하 등 문제점이 생깁니다.\n일어날 때 팔을 완전히 편 상태에서 살짝 굽힌 상태를 유지한다는 느낌으로 일어나 주세요.\n");
-        }
-        if(user.getGood() > user.getWaist() + user.getBig() + user.getSmall()){
-            user.setFb(user.getFb() + "\n대체적으로 자세는 괜찮습니다. 다만 완벽하지는 않기에 데이터를 토대로 모범자세를 의식하며 계속 정진하세요!!\n");
-        }
-        if(num < 12){
-            user.setFb(user.getFb() + "\n전체 횟수가 아직 12개 이상이 되지 않는 다는 것은 기초 근력이 부족하다는 것입니다.\n꾸준히 정진하여 12개를 채우는 것을 목표로 잡습니다.\n만약 중량이시면 횟수에 근접해질 시 중량을 5kg 단위로 늘려주세요.\n");
-        }
-        if(user.getGood() == 12){
-            user.setFb(user.getFb() + "\n자세가 완벽합니다! 이대로 꾸준히 정진해주세요!! 다음 운동도 파이팅!\n");
         }
 
         double totalCaloriesBurned = countPushUp * caloriesBurnedPerRep;
@@ -1143,6 +1117,7 @@ public class ResultActivity extends AppCompatActivity {
         updates.put("waist", user.getWaist());
         updates.put("tension", user.getTension());
         updates.put("good", user.getGood());
+        updates.put("num", num);
 
         updates.put("fb", user.getFb());
         updates.put("fbB", user.getFbB());
