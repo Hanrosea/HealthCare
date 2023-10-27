@@ -23,6 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints"/>
     <TextView
         android:id="@+id/noRecordTextView"
         android:layout_width="match_parent"
