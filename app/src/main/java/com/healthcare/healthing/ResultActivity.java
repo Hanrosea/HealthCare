@@ -1196,11 +1196,11 @@ public class ResultActivity extends AppCompatActivity {
                     // 수정할 데이터의 값을 Map 객체로 만듭니다.
                     Map<String, Object> updates = new HashMap<>();
                     if(user.getName() == "스쿼트"){
-                        updates.put("스쿼트", user.getNum());
+                        updates.put("스쿼트", num);
                     }else if(user.getName() == "푸쉬업"){
-                        updates.put("푸쉬업", user.getNum());
+                        updates.put("푸쉬업", num);
                     }else if(user.getName() == "풀업"){
-                        updates.put("풀업", user.getNum());
+                        updates.put("풀업", num);
                     }
 
 
