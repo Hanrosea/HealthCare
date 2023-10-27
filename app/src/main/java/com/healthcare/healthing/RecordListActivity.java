@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,7 +25,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RecordListActivity extends AppCompatActivity {
@@ -33,11 +37,34 @@ public class RecordListActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private CustomAdapter adapter;
     private TextView noRecordTextView;
+    private CalendarView calendarView;
+    private TextView today;
+    private String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_list);
+
+        today = (TextView) findViewById(R.id.today);
+        calendarView = (CalendarView) findViewById(R.id.calendarView);
+
+        DateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일");
+        Date date = new Date(System.currentTimeMillis());
+        selectedDate = formatter.format(date);
+        today.setText(selectedDate);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                // 월(month)은 0부터 시작하므로 1을 더해줍니다.
+                month++; // 혹은 month = month + 1;
+
+                selectedDate = year + "년 " + (month) + "월 " + dayOfMonth + "일";
+                today.setText(selectedDate);
+            }
+        });
+
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();

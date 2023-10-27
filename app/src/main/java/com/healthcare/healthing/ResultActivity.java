@@ -41,7 +41,7 @@ import java.util.function.IntConsumer;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private DatabaseReference memoRef1, memoRef2;
+    private DatabaseReference memoRef1, memoRef2, memoRef3;
     private Together_group_list user, user1;
     private ValueEventListener valueEventListener;
     private int num;

@@ -11,15 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="운동 이름: 스쿼트"
-        android:textSize="18sp"
-        android:textColor="#605F5F" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/exercise_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="날짜: 2000-12-30 12:48:21"
-        android:textSize="14sp"
-        android:textColor="#605F5F" />
+        android:textSize="14sp" />
 
 </LinearLayout>

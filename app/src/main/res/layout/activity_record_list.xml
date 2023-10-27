@@ -5,15 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#C1C1C1"
     tools:context="com.healthcare.hellthing.RecordListActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020년 12월 11일"
+        android:textSize="30dp"
+        android:id="@+id/today"
+        android:layout_above="@+id/calendarView"
+        android:layout_gravity="center"/>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/noRecordTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textColor="@color/black"
         android:text="최근 운동 기록이 존재하지 않아요!"
         android:textSize="20dp"
         android:visibility="gone" />
