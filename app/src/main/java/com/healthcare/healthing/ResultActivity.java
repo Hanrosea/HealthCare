@@ -105,6 +105,7 @@ public class ResultActivity extends AppCompatActivity {
 
         user = new Together_group_list();
 
+        user.setNum(num);
 
         //수행 개수 점수
         user.setNormalizedNum((float) num / 12 * 20);
@@ -1023,6 +1024,7 @@ public class ResultActivity extends AppCompatActivity {
                                         updates.put("contractPercentage", tgList.getContractPercentage());
                                         updates.put("normalizedNum", tgList.getNormalizedNum());
                                         updates.put("result", tgList.getResult());
+                                        updates.put("num", user.getNum());
 
                                         updates.put("big", tgList.getBig());
                                         updates.put("small", tgList.getSmall());
@@ -1117,7 +1119,7 @@ public class ResultActivity extends AppCompatActivity {
         updates.put("waist", user.getWaist());
         updates.put("tension", user.getTension());
         updates.put("good", user.getGood());
-        updates.put("num", num);
+        updates.put("num", user.getNum());
 
         updates.put("fb", user.getFb());
         updates.put("fbB", user.getFbB());
@@ -1155,8 +1157,16 @@ class IntegerValueFormatter extends ValueFormatter {
 
 class Together_group_list{
     private double MaxAnglePercentage = 0, goodPosePercentage = 0, TensionPercentage = 0, contractPercentage = 0, result = 0, normalizedNum = 0;
-    private int big = 0, small = 0, waist = 0, tension = 0, good = 0;
+    private int big = 0, small = 0, waist = 0, tension = 0, good = 0, num = 0;
     private String fb = "", fbB = "", fbT = "", fbC = "", fbM = "", date = "", name = "";
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     public double getMaxAnglePercentage() {
         return MaxAnglePercentage;
