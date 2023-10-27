@@ -1096,6 +1096,8 @@ public class ResultActivity extends AppCompatActivity {
         Date date = new Date(now);
         SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String getTime = dataFormat.format(date);
+        SimpleDateFormat dataFormat1 = new SimpleDateFormat("yyyy년 MM월 dd일");
+        String memoryDate = dataFormat1.format(date);
 
         user.setDate(getTime);
         // 수정할 데이터의 참조 경로 가져오기
@@ -1132,6 +1134,90 @@ public class ResultActivity extends AppCompatActivity {
 
         // 해당 데이터의 참조 경로에 updateChildren() 메소드를 호출하여 값을 수정합니다.
         memoToUpdateRef.updateChildren(updates);
+
+
+
+        DatabaseReference memoRef3 = mFirebaseDatabase.getReference("memos/" + mFirebaseUser.getUid()).child("/Calendar/" + memoryDate);
+
+        DatabaseReference userRef = mFirebaseDatabase.getReference("memos/" + mFirebaseUser.getUid()).child("/Calendar/" + memoryDate + "/profile/" + user.getName());
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // 데이터가 존재하는 경우
+                    mFirebaseDatabase.getReference("memos/" + mFirebaseUser.getUid()).child("/Calendar/" + memoryDate)
+                            .addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    Log.d("TAG2323", Integer.toString(user.getNum()));
+                                    DatabaseReference memoToUpdateRef = memoRef3.child("profile");
+
+                                    // 수정할 데이터의 값을 Map 객체로 만듭니다.
+                                    Map<String, Object> updates = new HashMap<>();
+                                    if(user.getName() == "스쿼트"){
+                                        updates.put("스쿼트", dataSnapshot.child("스쿼트").getValue(int.class) + num);
+                                    }else if(user.getName() == "푸쉬업"){
+                                        updates.put("푸쉬업", dataSnapshot.child("푸쉬업").getValue(int.class) + num);
+                                    }else if(user.getName() == "풀업"){
+                                        updates.put("풀업", dataSnapshot.child("풀업").getValue(int.class) + num);
+                                    }
+
+
+
+                                    // 해당 데이터의 참조 경로에 updateChildren() 메소드를 호출하여 값을 수정합니다.
+                                    memoToUpdateRef.updateChildren(updates);
+                                    // user 데이터를 사용하여 출력
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    // 변경된 데이터 처리
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                                    // 삭제된 데이터 처리
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    // 이동된 데이터 처리
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    // 처리할 오류가 있으면 여기에 작성
+                                }
+                            });
+                } else {
+                    DatabaseReference memoToUpdateRef = memoRef3.child("profile");
+
+                    // 수정할 데이터의 값을 Map 객체로 만듭니다.
+                    Map<String, Object> updates = new HashMap<>();
+                    if(user.getName() == "스쿼트"){
+                        updates.put("스쿼트", user.getNum());
+                    }else if(user.getName() == "푸쉬업"){
+                        updates.put("푸쉬업", user.getNum());
+                    }else if(user.getName() == "풀업"){
+                        updates.put("풀업", user.getNum());
+                    }
+
+
+
+                    // 해당 데이터의 참조 경로에 updateChildren() 메소드를 호출하여 값을 수정합니다.
+                    memoToUpdateRef.updateChildren(updates);
+                    // user 데이터를 사용하여 출력
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // 데이터 읽기가 실패한 경우
+
+            }
+        });
+
     }
 
     private void deleteMemo() {

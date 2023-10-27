@@ -264,7 +264,7 @@ public class PushUp implements HealthKind {
 
                     if(waist_banding == false){
                         //허리가 내려갔을 때
-                        tts.speak("허리를 올려주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
+                        tts.speak("허리를 펴주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = false;
                     }
                     else if(maxAngle > 100){
