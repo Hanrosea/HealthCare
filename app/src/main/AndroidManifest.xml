@@ -28,9 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HellThing"
         tools:targetApi="31">
+        <activity
+            android:name=".GymMapActivity"
+            android:exported="false" />
 
         <service
-            android:name="com.healthcare.healthing.FCM.MyFirebaseMessagingService"
+            android:name=".FCM.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -38,43 +41,43 @@
         </service>
 
         <activity
-            android:name="com.healthcare.healthing.RecordActivity"
+            android:name=".RecordActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.RecordListActivity"
+            android:name=".RecordListActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.Guide.SquatGuideActivity"
+            android:name=".Guide.SquatGuideActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.Guide.PushUpGuideActivity"
+            android:name=".Guide.PushUpGuideActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.Guide.PullupGuideActivity"
+            android:name=".Guide.PullupGuideActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.ResultActivity"
+            android:name=".ResultActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.ProfileActivity"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.java.CameraXLivePreviewActivity"
+            android:name=".java.CameraXLivePreviewActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.UserdataActivity"
+            android:name=".UserdataActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.SubMenuActivity"
+            android:name=".SubMenuActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.AuthActivity"
+            android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name="com.healthcare.healthing.TutorialActivity"
+            android:name=".TutorialActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name="com.healthcare.healthing.LogoActivity"
+            android:name=".LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,7 +86,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.healthcare.healthing.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
     </application>
 

@@ -35,7 +35,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RecordListActivity extends AppCompatActivity {
@@ -59,12 +62,16 @@ public class RecordListActivity extends AppCompatActivity {
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         noRecordTextView = findViewById(R.id.noRecordTextView);
-
+        DateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일");
+        Date date = new Date(System.currentTimeMillis());
+        selectedDate = formatter.format(date);
         Graph1();
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                month++; // 혹은 month = month + 1;
 
+                selectedDate = year + "년 " + (month) + "월 " + dayOfMonth + "일";
                 Graph1();
             }
         });
