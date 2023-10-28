@@ -219,7 +219,7 @@ public class PushUp implements HealthKind {
                 if (numAnglesInRange >= 12 && !isPushUp) {  // 푸쉬업 체크
                     tts.speak("Up!!", TextToSpeech.QUEUE_FLUSH, null, null);
                     //허리 각도 확인
-                    if (waistAngle < 150 || waistAngle > 190){
+                    if (waistAngle < 155 || waistAngle > 170){
                         waist_banding = true;
                     }else{
                         waist_banding = false;
@@ -256,15 +256,19 @@ public class PushUp implements HealthKind {
                         contract = timeAsDouble - timeAsDoubleTemp;
                     }
 
-                    if (waistAngle < 150 || waistAngle > 190){
+                    if (waistAngle < 155 || waistAngle > 170){
                         waist_banding = true;
                     }else{
                         waist_banding = false;
                     }
 
-                    if(waist_banding == true){
+                    if(waistAngle == 0){
                         //허리가 내려갔을 때
-                        tts.speak("허리를 펴주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
+                        tts.speak("허리를 올려주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
+                        goodPose = false;
+                    }else if(waist_banding == true){
+                        //허리가 내려갔을 때
+                        tts.speak("허리를 내려주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = false;
                     }
                     else if(maxAngle >= 100){
@@ -335,22 +339,10 @@ public class PushUp implements HealthKind {
         float vector2Y = point2.y - point3.y;
 
         // 벡터 1과 벡터 2의 내적을 계산
-        double dotProduct = vector1X * vector2X + vector1Y * vector2Y;
+        double crossProduct = vector1X * vector2Y - vector1Y * vector2X;
 
-        // 벡터 1의 크기 계산
-        double magnitude1 = Math.sqrt(vector1X * vector1X + vector1Y * vector1Y);
-
-        // 벡터 2의 크기 계산
-        double magnitude2 = Math.sqrt(vector2X * vector2X + vector2Y * vector2Y);
-
-        // 두 벡터의 내적을 이용하여 각도를 계산 (라디안)
-        double cosTheta = dotProduct / (magnitude1 * magnitude2);
-
-        // acos 함수를 사용하여 라디안 각도를 얻음
-        double angleInRadians = Math.acos(cosTheta);
-
-        // 라디안을 원하는 범위로 변환 (0도에서 250도)
-        double angle = Math.toDegrees(angleInRadians);
+        // 크로스 제품을 이용하여 각도의 회전 방향을 결정
+        double angle = Math.toDegrees(Math.atan2(crossProduct, vector1X * vector2X + vector1Y * vector2Y));
 
         // 범위를 0도에서 250도로 조정
         if (angle > 250.0) {
