@@ -258,7 +258,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
 
                                 temp++;
                             }
-                            if(num == 100){
+                            if(num == 12){
                                 cameraProvider.unbind(analysisUseCase);
                                 imageProcessor.stop();
                                 Intent intent = new Intent(CameraXLivePreviewActivity.this, ResultActivity.class);

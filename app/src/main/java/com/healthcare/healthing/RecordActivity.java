@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,13 +48,8 @@ public class RecordActivity extends AppCompatActivity {
     private Together_group_list user;
     private ValueEventListener valueEventListener;
     private TextView feedback;
-    private TextView feedbackBalance;
-    private TextView feedbackTension;
-    private TextView feedbackContract;
-    private TextView feedbackMaxAngle;
+    private TextView TotalFB;
     private int list;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +62,7 @@ public class RecordActivity extends AppCompatActivity {
         btn_share = (Button) findViewById(R.id.btn_share);
 
         feedback = (TextView) findViewById(R.id.feedback);
-        feedbackBalance = (TextView) findViewById(R.id.feedbackBalance);
-        feedbackTension = (TextView) findViewById(R.id.feedbackTension);
-        feedbackContract = (TextView) findViewById(R.id.feedbackContract);
-        feedbackMaxAngle = (TextView) findViewById(R.id.feedbackMaxAngle);
+        TotalFB = (TextView) findViewById(R.id.TotalFB);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
@@ -124,11 +118,8 @@ public class RecordActivity extends AppCompatActivity {
                         if (user != null) {
                             Graph1();
                             Graph2();
-                            feedbackMaxAngle.setText(user.getFbM());
-                            feedbackContract.setText(user.getFbC());
-                            feedbackTension.setText(user.getFbT());
-                            feedbackBalance.setText(user.getFbB());
                             feedback.setText(user.getFb());
+                            TotalFB.setText(user.getTotalFB());
                         }
                     }
                 }
@@ -269,18 +260,18 @@ public class RecordActivity extends AppCompatActivity {
         barDataSet.setColors(colors);
         barDataSet.setValueTextSize(15f);
         barData.addDataSet(barDataSet); // 해당 BarDataSet 을 적용될 차트에 들어갈 DataSet 에 넣는다.
-        barData.setBarWidth(0.5f);
+        barData.setBarWidth(0.65f);
 
         barDataSet1.setColor(Color.DKGRAY); // 어두운 회색
         barDataSet1.setDrawValues(false); // 값 표시
         barDataSet1.setBarBorderWidth(0.2f); // 막대 간 간격
         barDataSet1.setDrawIcons(false);
 
-        float shiftValue1 = -0.02f; // 이동할 값 (0.2f는 예시)
+        float shiftValue1 = -0.03f; // 이동할 값 (0.2f는 예시)
         for (BarEntry entry : entry_chart1) {
             entry.setX(entry.getX() + shiftValue1);
         }
-        float shiftValue2 = 0.02f; // 이동할 값 (0.2f는 예시)
+        float shiftValue2 = 0.04f; // 이동할 값 (0.2f는 예시)
         for (BarEntry entry : entry_chart1) {
             entry.setY(entry.getY() + shiftValue2);
         }
@@ -402,18 +393,18 @@ public class RecordActivity extends AppCompatActivity {
         }
         barDataSet.setValueTextSize(15f);
         barData.addDataSet(barDataSet); // 해당 BarDataSet 을 적용될 차트에 들어갈 DataSet 에 넣는다.
-        barData.setBarWidth(0.5f);
+        barData.setBarWidth(0.65f);
 
         barDataSet1.setColor(Color.DKGRAY); // 어두운 회색
         barDataSet1.setDrawValues(false); // 값 표시
         barDataSet1.setBarBorderWidth(0.2f); // 막대 간 간격
         barDataSet1.setDrawIcons(false);
 
-        float shiftValue1 = -0.02f; // 이동할 값 (0.2f는 예시)
+        float shiftValue1 = -0.03f; // 이동할 값 (0.2f는 예시)
         for (BarEntry entry : entry_chart1) {
             entry.setX(entry.getX() + shiftValue1);
         }
-        float shiftValue2 = 0.02f; // 이동할 값 (0.2f는 예시)
+        float shiftValue2 = 0.04f; // 이동할 값 (0.2f는 예시)
         for (BarEntry entry : entry_chart1) {
             entry.setY(entry.getY() + shiftValue2);
         }

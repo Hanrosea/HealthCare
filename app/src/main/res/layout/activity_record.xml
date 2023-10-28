@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.healthcare.hellthing.RecordActivity">
+    tools:context="com.healthcare.healthing.RecordActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
-            android:text="근육 활성도"
+            android:layout_marginLeft="20dp"
+            android:text="운동 결과"
             android:textAllCaps="false"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -27,118 +28,14 @@
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="220dp"
             tools:ignore="MissingConstraints"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="균형: "
-                android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-
-            <TextView
-                android:id="@+id/feedbackBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="result"
-                android:layout_marginRight="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="긴장: "
-                android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-
-            <TextView
-                android:id="@+id/feedbackTension"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="result"
-                android:layout_marginRight="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="수축: "
-                android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-
-            <TextView
-                android:id="@+id/feedbackContract"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="result"
-                android:layout_marginRight="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="이완: "
-                android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-
-            <TextView
-                android:id="@+id/feedbackMaxAngle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="result"
-                android:layout_marginRight="20dp"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                tools:ignore="MissingPrefix" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:text="자세 분류"
             android:textAllCaps="false"
             android:textColor="#000000"
@@ -149,7 +46,7 @@
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/chart2"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="220dp"
             tools:ignore="MissingConstraints"/>
 
         <TextView
@@ -157,12 +54,25 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="10dp"
-            android:text="분석 내용"
+            android:text="AI 분석 결과"
             android:textAllCaps="false"
             android:textColor="#000000"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TotalFB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="result"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            tools:ignore="MissingPrefix" />
 
         <TextView
             android:id="@+id/feedback"
@@ -171,6 +81,7 @@
             android:layout_gravity="left"
             android:text="result"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:textColor="#000000"
             android:layout_marginLeft="20dp"
             android:textSize="18dp"
@@ -178,31 +89,34 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom|center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="1dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="bottom">
 
             <Button
                 android:id="@+id/btn_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="1dp"
                 android:text="확       인"
-                android:textColor="@color/white" />
-
+                android:fontFamily="@font/lotte_bold"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:layout_margin="1dp"
+                tools:ignore="HardcodedText" />
             <Button
                 android:id="@+id/btn_share"
-                android:layout_width="130dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="1dp"
                 android:text="공유"
-                android:textColor="@color/white" />
+                android:fontFamily="@font/lotte_bold"
+                android:insetTop="0dp"
+                android:layout_weight="3"
+                android:insetBottom="0dp"
+                android:textColor="@color/black"
+                android:layout_margin="1dp"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
-
     </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

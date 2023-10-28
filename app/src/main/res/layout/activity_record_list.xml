@@ -5,17 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.healthcare.hellthing.RecordListActivity">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2020년 12월 11일"
-        android:textSize="30dp"
-        android:id="@+id/today"
-        android:layout_above="@+id/calendarView"
-        android:layout_gravity="center"/>
+    tools:context="com.healthcare.healthing.RecordListActivity">
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -28,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         tools:ignore="MissingConstraints"/>
+
     <TextView
         android:id="@+id/noRecordTextView"
         android:layout_width="match_parent"
@@ -41,9 +32,6 @@
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </ListView>
-
-
 
 </LinearLayout>

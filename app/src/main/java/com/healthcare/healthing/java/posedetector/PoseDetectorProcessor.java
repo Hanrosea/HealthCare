@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
@@ -52,7 +53,6 @@ public class PoseDetectorProcessor
     private static final String TAG = "PoseDetectorProcessor";
 
     private final PoseDetector detector;
-
     private final boolean showInFrameLikelihood;
     private final boolean visualizeZ;
     private final boolean rescaleZForVisualization;
@@ -63,41 +63,41 @@ public class PoseDetectorProcessor
     private final Executor classificationExecutor;
     private int Health;
     private TextToSpeech tts;
-
-    ////////////////////////////
-
     //운동 변수
 
     private int numAnglesInRange = 0;
     private int num = 0;
     private double maxAngle = 0;
-    private double contract;
     private boolean goodPose = false;
     private boolean waist_banding = false;
     private boolean Tension = false;
+    private String ExerAngle;
+    private String PelvicAngle;
 
-    public boolean isWaist_banding() {return waist_banding;}
+    private double TotalAngle;
+    private double contract;
+
+    public boolean isWaist_banding(){
+        return waist_banding;
+    }
     public int getNum() {
         return num;
     }
-
-    public double getMaxAngle() {
-        return maxAngle;
-    }
-
     public double getContract() {
         return contract;
     }
-
+    public double getMaxAngle() {
+        return maxAngle;
+    }
     public boolean isGoodPose() {
         return goodPose;
     }
-
     public boolean isTension() {
         return Tension;
     }
 
     private PoseClassifierProcessor poseClassifierProcessor;
+
     /** Internal class to hold Pose and classification results. */
     protected static class PoseWithClassification {
         private final Pose pose;
@@ -230,14 +230,17 @@ public class PoseDetectorProcessor
                                     case 1:
                                         Kind = new Squat();
                                         Kind.setTts(tts);
+                                        ExerAngle = "무릎";
                                         break;
                                     case 2:
                                         Kind = new PushUp();
                                         Kind.setTts(tts);
+                                        ExerAngle = "팔꿈치";
                                         break;
                                     case 3:
                                         Kind = new Pullup();
                                         Kind.setTts(tts);
+                                        ExerAngle = "팔꿈치";
                                         break;
                                     default:
                                         Kind = null;
@@ -254,29 +257,59 @@ public class PoseDetectorProcessor
                             Kind.onHealthAngle(pose);
 
                             waist_banding = Kind.isWaist_banding();
-                            numAnglesInRange = Kind.getNumAnglesInRange();
                             num = Kind.getNum();
                             maxAngle = Kind.getMaxAngle();
-                            contract = Kind.getContract();
                             goodPose = Kind.isGoodPose();
                             Tension = Kind.isTension();
 
-                            canvas.drawText("Left angle: " + Kind.getLeftAngle(), 20, 200, whitePaint);
-                            canvas.drawText("Right angle: " + Kind.getRightAngle(), 20, 250, whitePaint);
-                            canvas.drawText("Max angle: " + maxAngle, 20, 300, whitePaint);
-                            canvas.drawText("Num: " + num, 20, 350, whitePaint);
-                            canvas.drawText("numAnglesInRange: " + numAnglesInRange, 20, 400, whitePaint);
-                            canvas.drawText("contract: " + contract, 20, 450, whitePaint);
-                            canvas.drawText("Waist banding: " + waist_banding, 20, 500, whitePaint);
+                            TotalAngle = Math.min(Kind.getLeftAngle(),Kind.getRightAngle());
 
+                            if(waist_banding == true){
+                                PelvicAngle = "나쁨";
+                            } else{
+                                PelvicAngle = "좋음";
+                            }
+
+                            drawCircularProgressBar(canvas, num, 12, 850, 200, 100);
+
+                            canvas.drawText(ExerAngle + "각도 : " + (int) TotalAngle, 40, 150, whitePaint);
+                            canvas.drawText("최대 운동 각도: " + (int) maxAngle, 40, 225, whitePaint);
+                            canvas.drawText("허리 각도 : " + PelvicAngle, 40, 300, whitePaint);
+                            canvas.drawText("운동 개수 : " + num, 725, 375, whitePaint);
                         }
-
                     }
                 });
     }
 
+    private void drawCircularProgressBar(Canvas canvas, int progress, int maxProgress, int x, int y, int radius) {
+        Paint graphPaint = new Paint();
+        graphPaint.setColor(Color.GRAY); // 기본 그래프 색상을 회색으로 설정
+        graphPaint.setStyle(Paint.Style.STROKE);
+        graphPaint.setStrokeWidth(20); // 그래프의 두께 설정
 
+        Paint progressPaint = new Paint();
+        progressPaint.setColor(Color.GREEN); // progress 증가시 그래프 색상을 초록색으로 유지
+        progressPaint.setStyle(Paint.Style.STROKE);
+        progressPaint.setStrokeWidth(20); // 그래프의 두께 설정
 
+        // 진행 퍼센트를 표시합니다.
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(80); // 글자 굵기 설정
+
+        RectF oval = new RectF(x - radius, y - radius, x + radius, y + radius);
+
+        // 그래프의 외곽 테두리를 그립니다.
+        canvas.drawArc(oval, 0, 360, false, graphPaint);
+
+        // 그래프의 진행 부분을 그립니다.
+        float sweepAngle = ((float) progress / maxProgress) * 360;
+        canvas.drawArc(oval, -90, sweepAngle, false, progressPaint);
+
+        String text = progress + "";
+        float textWidth = textPaint.measureText(text);
+        canvas.drawText(text, x - textWidth / 2, y + 25, textPaint);
+    }
     @Override
     protected void onFailure(@NonNull Exception e) {
         Log.e(TAG, "Pose detection failed!", e);
