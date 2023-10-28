@@ -28,9 +28,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HellThing"
         tools:targetApi="31">
-        <activity
-            android:name=".GymMapActivity"
-            android:exported="false" />
 
         <service
             android:name=".FCM.MyFirebaseMessagingService"
