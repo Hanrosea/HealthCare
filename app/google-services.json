@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:330999070989:android:ad6ebfcfb365befd35f044",
         "android_client_info": {
-          "package_name": "com.healthcare.healthing"
+          "package_name": "com.example.healthcare"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "330999070989-1it5740c0co278duthneeq9ar80tjhln.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.healthcare.healthing",
+            "package_name": "com.example.healthcare",
             "certificate_hash": "55f8bb6a9089059e560d52883cd86f63c93fc415"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "330999070989-jkbvnsu9mei5e4ammtitsvt59f02lsgu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.healthcare.healthing",
+            "package_name": "com.example.healthcare",
             "certificate_hash": "3b78a240643e3997c585fc7ad0db6e5da51bc498"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "330999070989-nhg7vn3q4nto92u57at2pck4859c0lcd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.healthcare.healthing",
+            "package_name": "com.example.healthcare",
             "certificate_hash": "39498d0e246726295590208aef39c02b00c66576"
           }
         },
@@ -42,7 +42,7 @@
           "client_id": "330999070989-sl5u1v72f5mepbo6kpjfo2pb9m04rr79.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.healthcare.healthing",
+            "package_name": "com.example.healthcare",
             "certificate_hash": "aca129cba19b69810ac20a58770a0094aa6cc0f1"
           }
         },
@@ -52,6 +52,9 @@
         }
       ],
       "api_key": [
+        {
+          "current_key": "AIzaSyBC6XLvkaEkdi1Lhz9EgnqYEYlrXn5eAHQ"
+        },
         {
           "current_key": "AIzaSyBV18DVrpLxZVScWZmLaIUgU_LtiVEPgv8"
         }
@@ -69,12 +72,28 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:330999070989:android:46822b195bde3b3a35f044",
+        "mobilesdk_app_id": "1:330999070989:android:5f5ba71b3dcd847735f044",
         "android_client_info": {
           "package_name": "com.healthcare.healthing"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "330999070989-72q4dnf7q8pmfhld49f5i0hhuv133lbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.healthcare.healthing",
+            "certificate_hash": "55f8bb6a9089059e560d52883cd86f63c93fc415"
+          }
+        },
+        {
+          "client_id": "330999070989-a3pb5i9k68rvbpga98201bgqv8ibnlue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.healthcare.healthing",
+            "certificate_hash": "aca129cba19b69810ac20a58770a0094aa6cc0f1"
+          }
+        },
         {
           "client_id": "330999070989-lkcuf7cg4qr9qloadpiate97upg1mc5q.apps.googleusercontent.com",
           "client_type": 1,
@@ -84,11 +103,22 @@
           }
         },
         {
+          "client_id": "330999070989-ra6al801ot8t2etk26th9pb5uss8419g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.healthcare.healthing",
+            "certificate_hash": "3b78a240643e3997c585fc7ad0db6e5da51bc498"
+          }
+        },
+        {
           "client_id": "330999070989-rudhdmv9nveuljvp55oou57mgiu8lhou.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
+        {
+          "current_key": "AIzaSyBC6XLvkaEkdi1Lhz9EgnqYEYlrXn5eAHQ"
+        },
         {
           "current_key": "AIzaSyBV18DVrpLxZVScWZmLaIUgU_LtiVEPgv8"
         }
