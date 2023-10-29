@@ -27,6 +27,7 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 import com.google.android.gms.common.annotation.KeepName;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
+import com.healthcare.healthing.ExerciseFragment;
 import com.healthcare.healthing.Graphic.CameraXViewModel;
 import com.healthcare.healthing.Graphic.GraphicOverlay;
 import com.healthcare.healthing.Graphic.VisionImageProcessor;
@@ -91,7 +92,8 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
         btn_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(view.getContext())
+                if (num > 0) {
+                    new AlertDialog.Builder(view.getContext())
                         .setMessage("지금 바로 그만두시겠습니까?")
                         .setCancelable(false)
                         .setPositiveButton("네", new DialogInterface.OnClickListener() {
@@ -114,6 +116,10 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
                         })
                         .setNegativeButton("아니오", null)
                         .show();
+                }
+                else{
+                    onBackPressed();
+                }
             }
         });
 

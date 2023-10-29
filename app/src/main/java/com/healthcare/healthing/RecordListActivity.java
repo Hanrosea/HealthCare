@@ -221,6 +221,7 @@ public class RecordListActivity extends AppCompatActivity {
                                     if (dataSnapshot.child("풀업").getValue(int.class) != 0) {
                                         entry_chart1.add(new BarEntry(1, dataSnapshot.child("풀업").getValue(int.class)));
                                     }
+
                                     entries.add(entry_chart.get(0));
                                     entries.add(entry_chart.get(1));
                                     entries.add(entry_chart.get(2));
