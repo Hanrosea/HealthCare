@@ -21,6 +21,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -140,10 +141,14 @@ public class MenuFragment extends Fragment {
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         dataSet.setValueTextSize(0f); // 숫자 값 크기를 0으로 설정하여 숨김
 
+        pieChart.setHoleRadius(40f); // 가운데 공백 크기 조절
+        pieChart.setTransparentCircleRadius(45f); // 가운데 공백 주변의 투명한 원 크기 조절
+
+        pieChart.setTouchEnabled(false);
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
 
-        pieChart.animateXY(3000, 3000);
+        pieChart.animateXY(1500, 1500);
 
         DatabaseReference userRef = mFirebaseDatabase.getReference("memos/" + mFirebaseUser.getUid()).child("AfterData");
 
@@ -159,7 +164,7 @@ public class MenuFragment extends Fragment {
                         // 변경된 데이터 처리
                         User user = dataSnapshot.getValue(User.class);
                         // BMI 계산
-                        BMI_Calc(user, view);
+                        BMI_Calc(user, view, pieChart);
                     }
 
                     @Override
@@ -167,7 +172,7 @@ public class MenuFragment extends Fragment {
                         // 변경된 데이터 처리
                         User user = dataSnapshot.getValue(User.class);
                         // BMI 계산
-                        BMI_Calc(user, view);
+                        BMI_Calc(user, view, pieChart);
                     }
 
                     @Override
@@ -376,8 +381,9 @@ public class MenuFragment extends Fragment {
     }
 
     // BMI 지수 색상
-    private int getBackgroundColorForStat(String stat) {
+    private int getBackgroundColorForStat(String stat, PieChart pieChart) {
         int backgroundColor; // 기본 배경 색상 (예시: 흰색)
+        int entryIndex = 0; // 기본적으로 첫 번째 항목을 선택
 
         switch (stat) {
             case "저체중":
@@ -385,24 +391,33 @@ public class MenuFragment extends Fragment {
                 break;
             case "정상체중":
                 backgroundColor = Color.parseColor("#FF8C00"); // 정상체중에 대한 배경 색상
+                entryIndex = 1; // 두 번째 항목을 선택
                 break;
             case "과체중":
                 backgroundColor = Color.parseColor("#FFD700"); // 과체중에 대한 배경 색상
+                entryIndex = 2; // 세 번째 항목을 선택
                 break;
             case "경도비만":
                 backgroundColor = Color.parseColor("#6B8E23"); // 경도비만에 대한 배경 색상
+                entryIndex = 3; // 네 번째 항목을 선택
                 break;
             case "고도비만":
                 backgroundColor = Color.parseColor("#CD853F"); // 고도비만에 대한 배경 색상
+                entryIndex = 4; // 다섯 번째 항목을 선택
                 break;
             default:
                 backgroundColor = Color.parseColor("#FFFFFF"); // 기본 배경 색상 (흰색)
         }
+
+        // 선택한 항목을 강조 표시
+        pieChart.highlightValue(new Highlight(entryIndex, 0, 0));
+
         return backgroundColor;
     }
 
+
     // BMI 계산
-    private void BMI_Calc(User user, View view) {
+    private void BMI_Calc(User user, View view, PieChart pieChart) {
         float weight = Float.parseFloat(user.getWeight());
         float height = Float.parseFloat(user.getHeight());
         String sex = user.getSex();
@@ -417,7 +432,7 @@ public class MenuFragment extends Fragment {
         Stat.setText(stat);
         BMI_N.setText(formattedValue);
 
-        int backgroundColor = getBackgroundColorForStat(stat);
+        int backgroundColor = getBackgroundColorForStat(stat, pieChart);
         Stat.setBackgroundColor(backgroundColor);
     }
 
