@@ -81,6 +81,9 @@
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
+            android:name=".FoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".TutorialActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity

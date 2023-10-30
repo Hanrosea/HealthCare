@@ -77,6 +77,7 @@ public class MenuFragment extends Fragment {
     private Button btn_profile;
     private Button btn_record;
     private Button btn_Nmap;
+    private Button btn_food;
 
 
 
@@ -123,6 +124,19 @@ public class MenuFragment extends Fragment {
                 Intent intent = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     intent = new Intent(getActivity(), RecordListActivity.class);
+                }
+                startActivity(intent);
+            }
+        });
+
+        //식단 정보
+        btn_food = view.findViewById(R.id.btn_food);
+        btn_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    intent = new Intent(getActivity(), FoodActivity.class);
                 }
                 startActivity(intent);
             }
