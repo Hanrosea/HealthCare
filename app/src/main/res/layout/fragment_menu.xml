@@ -23,8 +23,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="left"
                 android:orientation="horizontal">
 
@@ -126,7 +126,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -143,7 +143,7 @@
             <android.widget.Button
                 android:id="@+id/btn_proflie"
                 android:layout_width="275dp"
-                android:layout_height="88dp"
+                android:layout_height="77dp"
                 android:layout_marginLeft="15dp"
                 android:gravity="left|center"
                 android:fontFamily="@font/lotte_bold"
@@ -155,7 +155,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -171,7 +171,7 @@
             <android.widget.Button
                 android:id="@+id/btn_record"
                 android:layout_width="275dp"
-                android:layout_height="88dp"
+                android:layout_height="77dp"
                 android:layout_marginLeft="15dp"
                 android:gravity="left|center"
                 android:text="운동기록"
@@ -183,7 +183,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -199,7 +199,7 @@
             <android.widget.Button
                 android:id="@+id/btn_food"
                 android:layout_width="275dp"
-                android:layout_height="88dp"
+                android:layout_height="77dp"
                 android:layout_marginLeft="15dp"
                 android:gravity="left|center"
                 android:text="식단정보"
@@ -211,7 +211,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -227,7 +227,7 @@
             <android.widget.Button
                 android:id="@+id/btn_map"
                 android:layout_width="275dp"
-                android:layout_height="88dp"
+                android:layout_height="77dp"
                 android:layout_marginLeft="15dp"
                 android:gravity="left|center"
                 android:text="헬스장맵"

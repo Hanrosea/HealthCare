@@ -1,5 +1,6 @@
 package com.healthcare.healthing;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -75,6 +76,8 @@ public class MenuFragment extends Fragment {
     private Button btn_withdrawal;
     private Button btn_profile;
     private Button btn_record;
+    private Button btn_Nmap;
+
 
 
     @Override
@@ -120,6 +123,19 @@ public class MenuFragment extends Fragment {
                 Intent intent = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     intent = new Intent(getActivity(), RecordListActivity.class);
+                }
+                startActivity(intent);
+            }
+        });
+
+        //헬스장맵
+        btn_Nmap = view.findViewById(R.id.btn_map);
+        btn_Nmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    intent = new Intent(getActivity(), NapsActivity.class);
                 }
                 startActivity(intent);
             }
@@ -196,36 +212,6 @@ public class MenuFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // 처리할 오류가 있으면 여기에 작성
-            }
-        });
-
-        Button btn_food = view.findViewById(R.id.btn_food);
-        btn_food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 클릭 횟수 증가
-                clickCount++;
-
-                // 클릭 횟수가 10 이상인지 확인
-                if (clickCount >= 1) {
-                    // 팝업 대화상자를 표시합니다.
-                    showPopupDialog("아직 준비중입니다!");
-                }
-            }
-        });
-
-        Button btn_map = view.findViewById(R.id.btn_map);
-        btn_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 클릭 횟수 증가
-                clickCount++;
-
-                // 클릭 횟수가 10 이상인지 확인
-                if (clickCount >= 1) {
-                    // 팝업 대화상자를 표시합니다.
-                    showPopupDialog("아직 준비중입니다!");
-                }
             }
         });
 
