@@ -43,7 +43,7 @@ import java.util.ArrayList;
  */
 public class MenuFragment extends Fragment {
 
-    private Button StatBtn;
+    private TextView StatTV;
     private TextView BTN_N;
     private String stat;
 
@@ -147,8 +147,9 @@ public class MenuFragment extends Fragment {
         pieChart.setTouchEnabled(false);
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
+        pieChart.getLegend().setEnabled(false); // 범례(legend)를 비활성화
 
-        pieChart.animateXY(1500, 1500);
+        pieChart.animateXY(2000, 2000);
 
         DatabaseReference userRef = mFirebaseDatabase.getReference("memos/" + mFirebaseUser.getUid()).child("AfterData");
 
@@ -195,26 +196,6 @@ public class MenuFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // 처리할 오류가 있으면 여기에 작성
-            }
-        });
-
-        Button StatBtn = view.findViewById(R.id.StatBtn);
-        StatBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 클릭 횟수 증가
-                clickCount++;
-
-                // 클릭 횟수가 10 이상인지 확인
-                if (clickCount >= 5) {
-                    // 팝업 대화상자를 표시합니다.
-                    showPopupDialog("저체중ㅡ : ~ 18.5 " + "\n" +
-                            "정상체중 : 18.5 ~ 24.9" + "\n" +
-                            "과체중ㅡ : 25.0 ~ 29.9" + "\n" +
-                            "경도비만 :  30.0 ~ 34.9" + "\n" +
-                            "고도비만 : 35.0 ~ 39.9" + "\n" +
-                            "고위험군 : 40 ~");
-                }
             }
         });
 
@@ -425,7 +406,7 @@ public class MenuFragment extends Fragment {
         float progressValue = (float) (weight / Math.pow(height / 100, 2));
         String stat = calculateStat(sex, progressValue);
 
-        Button Stat = view.findViewById(R.id.StatBtn);
+        TextView Stat = view.findViewById(R.id.StatTV);
         TextView BMI_N = view.findViewById(R.id.BMI_N);
 
         String formattedValue = String.format("%.1f", progressValue);

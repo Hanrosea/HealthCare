@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#E0E0E0"
+    android:background="#101010"
     tools:context="com.healthcare.healthing.MenuFragment">
 
     <LinearLayout
@@ -12,105 +12,233 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:layout_gravity="center"
         android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/piechart"
-                android:layout_width="265dp"
-                android:layout_height="265dp"
-                android:layout_marginTop="30dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="BMI 지수"
-                android:textSize="15sp"
-                android:fontFamily="@font/lotte_bold"
-                android:textColor="#000000"
-                android:layout_marginTop="-13dp" />
-            <TextView
-                android:id="@+id/BMI_N"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="ㅁㅇㄴ"
-                android:textSize="22sp"
-                android:fontFamily="@font/lotte_bold"
-                android:textColor="#000000"
-                android:layout_marginTop="8dp" />
-
-        </FrameLayout>
-
         <LinearLayout
-            android:id="@+id/prp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/StatBtn"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
-                android:text="정상" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <!-- BMI 그래프 -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginLeft="15dp">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/piechart"
+                        android:layout_width="175dp"
+                        android:layout_height="175dp"/>
+                    <TextView
+                        android:id="@+id/BMI_N"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="수치"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/lotte_bold"
+                        android:textColor="#000000"/>
+                </FrameLayout>
+
+                <!-- BMI 그래프 옆 틀 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:text="BMI 수치 : "
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                        <TextView
+                            android:id="@+id/StatTV"
+                            android:layout_width="77dp"
+                            android:layout_height="wrap_content"
+                            android:text="정상체중"
+                            android:gravity="center"
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
+
+                    <!-- 정상 수치 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="left">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:text="정상 수치 : "
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20.6 ~ 26.5"
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                    </LinearLayout>
+
+                    <!-- 정상 몸무게 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="left">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:text="정상 무게 : "
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="72kg"
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/menuTwoBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="left|center"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background">
 
-            <Button
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/info_op"/>
+            <android.widget.Button
                 android:id="@+id/btn_proflie"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:backgroundTint="@color/white"
-                android:text="💁🏻ᩚ 회원정보                               ->"
-                android:textSize="15dp" />
+                android:layout_width="275dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="left|center"
+                android:fontFamily="@font/lotte_bold"
+                android:text="회원정보"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:background="@null"/>
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_food"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:backgroundTint="@color/white"
-                android:text="🍽️ᩚ 식단정보                                ->"
-                android:textSize="15dp" />
-
-            <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="left|center"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background">
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/plan_op"/>
+            <android.widget.Button
                 android:id="@+id/btn_record"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:backgroundTint="@color/white"
-                android:text="📊️ 운동기록                                ->"
-                android:textSize="15dp" />
+                android:layout_width="275dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="left|center"
+                android:text="운동기록"
+                android:fontFamily="@font/lotte_bold"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:background="@null"/>
+        </LinearLayout>
 
-            <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="left|center"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background">
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/food_op"/>
+            <android.widget.Button
+                android:id="@+id/btn_food"
+                android:layout_width="275dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="left|center"
+                android:text="식단정보"
+                android:fontFamily="@font/lotte_bold"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="left|center"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background">
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ggym_op"/>
+            <android.widget.Button
                 android:id="@+id/btn_map"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:backgroundTint="@color/white"
-                android:text="🏋️ 헬스장맵                                ->"
-                android:textSize="15dp" />
+                android:layout_width="275dp"
+                android:layout_height="88dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="left|center"
+                android:text="헬스장맵"
+                android:fontFamily="@font/lotte_bold"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:background="@null"/>
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,7 +250,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#FFFFFf"
+            android:backgroundTint="#FFFFFF"
             android:layout_margin="1dp"
             android:text="로그아웃"
             android:fontFamily="@font/lotte_bold"
