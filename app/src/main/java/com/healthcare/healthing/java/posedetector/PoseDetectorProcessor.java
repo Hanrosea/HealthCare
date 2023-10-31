@@ -264,10 +264,10 @@ public class PoseDetectorProcessor
 
                             TotalAngle = Math.min(Kind.getLeftAngle(),Kind.getRightAngle());
 
-                            if(waist_banding == true){
-                                PelvicAngle = "나쁨";
-                            } else{
+                            if(waist_banding){
                                 PelvicAngle = "좋음";
+                            } else{
+                                PelvicAngle = "나쁨";
                             }
 
                             drawCircularProgressBar(canvas, num, 12, 850, 200, 100);

@@ -159,12 +159,18 @@ public class PushUp implements HealthKind {
             // 어깨 중심점과 엉덩이 중심점을 연결한 선과
             // 엉덩이 중심점과 무릎 중심점을 연결한 선 사이의 각도를 계산합니다.
             double leftAngle = calculateWaistAngle(leftShoulder, leftHip, leftAnkle);
-            double rightAngle = calculateWaistAngle(leftShoulder, leftHip, leftAnkle);
+            double rightAngle = calculateWaistAngle(rightShoulder, rightHip, rightAnkle);
 
-            double dataAngle = Math.min(leftAngle,rightAngle);
+            double dataAngle = rightAngle;
+        if (leftHip != null && leftShoulder != null
+                && rightHip != null && rightShoulder != null) {
 
-            // 두 선이 벌어진 각도는 두 각도의 합이 됩니다.
-            waistAngle = dataAngle;
+            PointF hipCenter = new PointF((leftHip.x + rightHip.x) / 2, (leftHip.y + rightHip.y) / 2);
+            PointF shoulderCenter = new PointF((leftShoulder.x + rightShoulder.x) / 2, (leftShoulder.y + rightShoulder.y) / 2);
+
+            // 3. 엉덩이 중심점, 골반 중심점 및 어깨 중심점 사이의 각도를 계산합니다.
+            waistAngle = calculateAngle(hipCenter, shoulderCenter, new PointF(shoulderCenter.x, shoulderCenter.y - 1));
+        }
             Log.d("PushUp", "waistAngle: " + waistAngle);
         }
     }
@@ -207,6 +213,7 @@ public class PushUp implements HealthKind {
             isPushUp = false;
             waist_banding = false;
             numAnglesInRange = 0;
+            Tension = false;
         }
 
         if (leftShoulder != null && leftElbow != null && leftWrist != null
@@ -219,10 +226,11 @@ public class PushUp implements HealthKind {
                 if (numAnglesInRange >= 12 && !isPushUp) {  // 푸쉬업 체크
                     tts.speak("Up!!", TextToSpeech.QUEUE_FLUSH, null, null);
                     //허리 각도 확인
-                    if (waistAngle < 155 || waistAngle > 170){
+                    if (waistAngle < 113 && waistAngle >= 88){
                         waist_banding = true;
                     }else{
                         waist_banding = false;
+                        Tension = false;
                     }
                     if((int)temp < (int)allAngle){
                         isPushUp = true;
@@ -256,27 +264,32 @@ public class PushUp implements HealthKind {
                         contract = timeAsDouble - timeAsDoubleTemp;
                     }
 
-                    if (waistAngle < 155 || waistAngle > 170){
+                    if (waistAngle < 113 && waistAngle >= 88){
                         waist_banding = true;
-                    }else{
-                        waist_banding = false;
                     }
 
-                    if(waistAngle == 0){
+                    if(waistAngle > 113){
                         //허리가 내려갔을 때
                         tts.speak("허리를 올려주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = false;
-                    }else if(waist_banding == true){
-                        //허리가 내려갔을 때
+                        waist_banding = false;
+                    }else if(waistAngle < 88){
+                        //허리가 올라갔을 때
                         tts.speak("허리를 내려주세요.", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = false;
+                        waist_banding = false;
                     }
                     else if(maxAngle >= 100){
                         //조금 구부렸을 때
                         tts.speak("조금 더 내려가세요.", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = false;
                     }
-                    else if(maxAngle >= 40 && maxAngle <= 90 && waist_banding == false){
+                    else if(maxAngle < 40){
+                        //조금 구부렸을 때
+                        tts.speak("너무 많이 내려갔어요.", TextToSpeech.QUEUE_FLUSH, null, null);
+                        goodPose = false;
+                    }
+                    else if(maxAngle >= 40 && maxAngle < 100 && waist_banding == true){
                         //좋은 자세 일 때
                         tts.speak("좋은 자세입니다!", TextToSpeech.QUEUE_FLUSH, null, null);
                         goodPose = true;
@@ -287,7 +300,7 @@ public class PushUp implements HealthKind {
                 numAnglesInRange = 0;
             }
 
-            if (allAngle <= 90){
+            if (allAngle <= 162 && waist_banding){
                 Tension = true;
             }else{
                 Tension = false;

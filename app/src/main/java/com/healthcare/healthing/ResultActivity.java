@@ -54,6 +54,7 @@ public class ResultActivity extends AppCompatActivity {
     private String[] label = {"이완", "수축", "긴장", "균형", "종합"}, APPS = new String[5];
     private TextView feedback;
     private TextView TotalFB;
+    private String Fb = "";
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
@@ -474,18 +475,38 @@ public class ResultActivity extends AppCompatActivity {
             user.setContractPercentage(sum / num);
         }
 
-        if(user.getMaxAnglePercentage() == 0 && user.getContractPercentage() == 0 && user.getTensionPercentage() == 0 && user.getGoodPosePercentage() == 0) {
-            user.setTotalFB("운동을 하지 않았습니다!");
+        if(user.getMaxAnglePercentage() <= 8){
+            Fb += "가동범위가 항상 부족합니다. 신경써주세요.\n";
         }
-        else if(user.getMaxAnglePercentage() <= 5 && user.getContractPercentage() <= 5 && user.getTensionPercentage() <= 5 && user.getGoodPosePercentage() <= 5){
-            user.setTotalFB("체력이 너무 부족합니다..!\n꾸준한 운동이 필요해요!");
-        }else if(user.getMaxAnglePercentage() <= 15 && user.getContractPercentage() <= 15 && user.getTensionPercentage() <= 15 && user.getGoodPosePercentage() <= 15){
-            user.setTotalFB("안정적인 자세입니다...!\n하지만 조금 더 노력해봐요!");
-        }else{
-            user.setTotalFB("자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!");
+        else if(user.getMaxAnglePercentage() <= 15){
+            Fb += "가동범위가 가끔 작게 움직입니다. 힘들어도 마지막까지 집중하세요.\n";
         }
 
-        TotalFB.setText(user.getTotalFB());
+        if(user.getContractPercentage() <= 8){
+            Fb += "힘이 부족합니다. 개수를 못채우더라도 하나에 열중해보세요!\n";
+        }
+        else if(user.getContractPercentage() <= 15){
+            Fb += "잘하나 가끔 힘이 부족할 때가 있습니다.\n";
+        }
+        if(user.getTensionPercentage() <= 8){
+            Fb += "매번 근육에 힘이 없습니다. 부상 위험있으니 긴장을 놓치지 마세요!!\n";
+        }
+        else if(user.getTensionPercentage() <= 15){
+            Fb += "가끔 힘이 빠질 때가 있습니다. 주의하세요.\n";
+        }
+        if(user.getGoodPosePercentage() <= 8){
+            Fb += "자세가 불안정합니다. 제대로된 자세를 숙지 후 해주세요.\n";
+        }
+        else if(user.getGoodPosePercentage() <= 15){
+            Fb += "자세가 가끔 무너집니다. 강도를 낮추거나 주의해주세요.\n";
+        }
+
+        if(user.getMaxAnglePercentage() > 15 && user.getContractPercentage() > 15 && user.getTensionPercentage() > 15 && user.getGoodPosePercentage() > 15) {
+            Fb += "자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!";
+        }
+
+        TotalFB.setText(Fb);
+        user.setTotalFB(Fb);
     }
 
     public void Squrts(){
@@ -601,18 +622,38 @@ public class ResultActivity extends AppCompatActivity {
             user.setContractPercentage(sum / num);
         }
 
-        if(user.getMaxAnglePercentage() == 0 && user.getContractPercentage() == 0 && user.getTensionPercentage() == 0 && user.getGoodPosePercentage() == 0) {
-            user.setTotalFB("운동을 하지 않았습니다!");
+        if(user.getMaxAnglePercentage() <= 8){
+            Fb += "가동범위가 항상 부족합니다. 신경써주세요.\n";
         }
-        else if(user.getMaxAnglePercentage() <= 5 && user.getContractPercentage() <= 5 && user.getTensionPercentage() <= 5 && user.getGoodPosePercentage() <= 5){
-            user.setTotalFB("체력이 너무 부족합니다..!\n꾸준한 운동이 필요해요!");
-        }else if(user.getMaxAnglePercentage() <= 15 && user.getContractPercentage() <= 15 && user.getTensionPercentage() <= 15 && user.getGoodPosePercentage() <= 15){
-            user.setTotalFB("안정적인 자세입니다...!\n하지만 조금 더 노력해봐요!");
-        }else{
-            user.setTotalFB("자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!");
+        else if(user.getMaxAnglePercentage() <= 15){
+            Fb += "가동범위가 가끔 작게 움직입니다. 힘들어도 마지막까지 집중하세요.\n";
         }
 
-        TotalFB.setText(user.getTotalFB());
+        if(user.getContractPercentage() <= 8){
+            Fb += "힘이 부족합니다. 개수를 못채우더라도 하나에 열중해보세요!\n";
+        }
+        else if(user.getContractPercentage() <= 15){
+            Fb += "잘하나 가끔 힘이 부족할 때가 있습니다.\n";
+        }
+        if(user.getTensionPercentage() <= 8){
+            Fb += "매번 근육에 힘이 없습니다. 부상 위험있으니 긴장을 놓치지 마세요!!\n";
+        }
+        else if(user.getTensionPercentage() <= 15){
+            Fb += "가끔 힘이 빠질 때가 있습니다. 주의하세요.\n";
+        }
+        if(user.getGoodPosePercentage() <= 8){
+            Fb += "자세가 불안정합니다. 제대로된 자세를 숙지 후 해주세요.\n";
+        }
+        else if(user.getGoodPosePercentage() <= 15){
+            Fb += "자세가 가끔 무너집니다. 강도를 낮추거나 주의해주세요.\n";
+        }
+
+        if(user.getMaxAnglePercentage() > 15 && user.getContractPercentage() > 15 && user.getTensionPercentage() > 15 && user.getGoodPosePercentage() > 15) {
+            Fb += "자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!";
+        }
+
+        TotalFB.setText(Fb);
+        user.setTotalFB(Fb);
     }
 
     public void PushUps(){
@@ -626,13 +667,13 @@ public class ResultActivity extends AppCompatActivity {
         double countPushUp = 0;
 
         for(int i = 0; i < num; i++){
-            if(maxAngle.get(i) > 100){
+            if(maxAngle.get(i) < 40){
                 user.setBig(user.getBig()+1);
             }
-            else if (maxAngle.get(i) < 90){
+            else if (maxAngle.get(i) > 100){
                 user.setSmall(user.getSmall() + 1);
             }
-            if (waist_banding.get(i)){
+            if (waist_banding.get(i) == false){
                 user.setWaist(user.getWaist() + 1);
             }
             if (Tension.get(i) == false){
@@ -729,18 +770,38 @@ public class ResultActivity extends AppCompatActivity {
             user.setContractPercentage(sum / num);
         }
 
-        if(user.getMaxAnglePercentage() == 0 && user.getContractPercentage() == 0 && user.getTensionPercentage() == 0 && user.getGoodPosePercentage() == 0) {
-            user.setTotalFB("운동을 하지 않았습니다!");
+        if(user.getMaxAnglePercentage() <= 8){
+            Fb += "가동범위가 항상 부족합니다. 신경써주세요.\n";
         }
-        else if(user.getMaxAnglePercentage() <= 5 && user.getContractPercentage() <= 5 && user.getTensionPercentage() <= 5 && user.getGoodPosePercentage() <= 5){
-            user.setTotalFB("체력이 너무 부족합니다..!\n꾸준한 운동이 필요해요!");
-        }else if(user.getMaxAnglePercentage() <= 15 && user.getContractPercentage() <= 15 && user.getTensionPercentage() <= 15 && user.getGoodPosePercentage() <= 15){
-            user.setTotalFB("안정적인 자세입니다...!\n하지만 조금 더 노력해봐요!");
-        }else{
-            user.setTotalFB("자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!");
+        else if(user.getMaxAnglePercentage() <= 15){
+            Fb += "가동범위가 가끔 작게 움직입니다. 힘들어도 마지막까지 집중하세요.\n";
         }
 
-        TotalFB.setText(user.getTotalFB());
+        if(user.getContractPercentage() <= 8){
+            Fb += "힘이 부족합니다. 개수를 못채우더라도 하나에 열중해보세요!\n";
+        }
+        else if(user.getContractPercentage() <= 15){
+            Fb += "잘하나 가끔 힘이 부족할 때가 있습니다.\n";
+        }
+        if(user.getTensionPercentage() <= 8){
+            Fb += "매번 근육에 힘이 없습니다. 부상 위험있으니 긴장을 놓치지 마세요!!\n";
+        }
+        else if(user.getTensionPercentage() <= 15){
+            Fb += "가끔 힘이 빠질 때가 있습니다. 주의하세요.\n";
+        }
+        if(user.getGoodPosePercentage() <= 8){
+            Fb += "자세가 불안정합니다. 제대로된 자세를 숙지 후 해주세요.\n";
+        }
+        else if(user.getGoodPosePercentage() <= 15){
+            Fb += "자세가 가끔 무너집니다. 강도를 낮추거나 주의해주세요.\n";
+        }
+
+        if(user.getMaxAnglePercentage() > 15 && user.getContractPercentage() > 15 && user.getTensionPercentage() > 15 && user.getGoodPosePercentage() > 15) {
+            Fb += "자세가 완벽합니다...!\n앞으로도 꾸준히 운동하세요!";
+        }
+
+        TotalFB.setText(Fb);
+        user.setTotalFB(Fb);
     }
 
     public void Pullup(){

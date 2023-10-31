@@ -2,6 +2,7 @@ package com.healthcare.healthing.java.Health;
 
 import android.graphics.PointF;
 import android.speech.tts.TextToSpeech;
+import android.widget.Toast;
 
 import com.google.mlkit.vision.pose.Pose;
 import com.google.mlkit.vision.pose.PoseLandmark;
@@ -199,6 +200,7 @@ public class Squat implements HealthKind{
         if (allAngle == 0) {
             isSquat = false;
             waist_banding = false;
+            Tension = false;
             numAnglesInRange = 0;
         }
 
@@ -215,6 +217,7 @@ public class Squat implements HealthKind{
                         waist_banding = true;
                     }else{
                         waist_banding = false;
+                        Tension = false;
                     }
                     if((int)temp < (int)allAngle){
                         isSquat = true;
@@ -252,6 +255,7 @@ public class Squat implements HealthKind{
                         waist_banding = true;
                     }else{
                         waist_banding = false;
+                        Tension = false;
                     }
                     if(waist_banding == false){
                         //허리가 굽었을 때
@@ -282,7 +286,7 @@ public class Squat implements HealthKind{
                 numAnglesInRange = 0;
             }
 
-            if (allAngle <= 160){
+            if (allAngle <= 160 && waist_banding){
                 Tension = true;
             }else{
                 Tension = false;
