@@ -10,12 +10,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="160dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_background"
         android:gravity="left|center"
         android:orientation="horizontal">
@@ -29,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
                 android:text="닭가슴살"
@@ -41,25 +40,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="벌크업 식단에서 훌륭한 단백질 공급원이며,\n근육 성장을 지원하기 위한 중요한 식품 중 하나입니다. "
+                android:text="벌크업 식단에서 훌륭한 단백질 공급원이며,\n근육 성장을 지원하는 식품입니다."
                 android:textColor="@color/black"
                 android:textSize="10dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="닭가슴살을 삶아 먹을 수도 있지만 얇게 썰고\n약간의 올리브 오일을 넣어 굽는다면 \n건강한 지방을 추가할 수 있습니다."
+                android:text="닭가슴살을 삶아 먹을 수도 있지만\n약간의 올리브 오일을 넣어 굽는다면 \n건강한 지방을 추가할 수 있습니다."
                 android:textColor="@color/black"
                 android:textSize="10dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/lotte"
                 android:text="100g / 165~175 kcal"
                 android:textAlignment="center"
@@ -67,22 +67,40 @@
                 android:textSize="10dp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="145dp"
-            android:layout_height="150dp"
-            android:layout_gravity="bottom|right"
-            app:srcCompat="@drawable/chicken" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="145dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center|right"
+                app:srcCompat="@drawable/chicken" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/lotte"
+                android:text="닭가슴살, 파프리카, 브로콜리"
+                android:textColor="#000000"
+                android:textSize="10dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="160dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_background"
         android:gravity="left|center"
         android:orientation="horizontal">
@@ -96,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
                 android:text="샐러드"
@@ -108,27 +126,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="일반적으로 인기있는 다이어트와 건강한 식습관을\n지원하는 음식입니다."
+                android:text="다이어트와 건강한 식습관을\n지원하는 인기있는 음식입니다."
                 android:textColor="@color/black"
                 android:textSize="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="맛과 영양을 결합하는 멋진 음식이지 식재료와 \n드레싱 선택을 신중하게 고려하여 건강한 샐러드를 \n만드는 것이 중요합니다."
+                android:text="맛과 영양을 결합하는 멋진 음식이지만\n식재료와 드레싱 선택을 신중하게 고려하여\n건강한 샐러드를 만드는 것이 중요합니다."
                 android:textColor="@color/black"
                 android:textSize="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/lotte"
                 android:text="100g / 15~30 kcal"
                 android:textAlignment="center"
@@ -136,23 +155,41 @@
                 android:textSize="10dp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="150dp"
-            android:layout_gravity="bottom|right"
-            android:layout_marginLeft="25dp"
-            app:srcCompat="@drawable/salad" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="145dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center|right"
+                app:srcCompat="@drawable/salad" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/lotte"
+                android:text="닭가슴살, 치커리, 삶은 달걀, 땅"
+                android:textColor="#000000"
+                android:textSize="10dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="160dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_background"
         android:gravity="left|center"
         android:orientation="horizontal">
@@ -166,7 +203,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
                 android:text="닭가슴살 샐러드"
@@ -178,7 +215,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
                 android:text="벌크업이나 다이어트 두가지 상황에 \n모두 훌륭한 음식입니다."
                 android:textColor="@color/black"
@@ -187,18 +225,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="벌크업을 하면서 먹을 때는 근성장을 위해 추가적인 \n칼로리 섭취와 탄수화물을 고려하 식사를 조절해야\n합니다."
+                android:text="벌크업을 하면서 먹을 때는\n근성장을 위해 추가적인 칼로리 섭취와\n탄수화물을 고려하 식사를 조절해야 합니다."
                 android:textColor="@color/black"
                 android:textSize="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/lotte"
                 android:text="100g / 50~100 kcal"
                 android:textAlignment="center"
@@ -206,24 +244,42 @@
                 android:textSize="10dp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginLeft="20dp"
-            app:srcCompat="@drawable/chickensalad" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="145dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center|right"
+                app:srcCompat="@drawable/chickensalad" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/lotte"
+                android:text="닭가슴살, 샐러드"
+                android:textColor="#000000"
+                android:textSize="10dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="160dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_background"
-        android:gravity="left|center"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -235,51 +291,70 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="현미밥과 돼지안심, 계란후라이"
+                android:text="고단백 식단"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="고단백이며 많은 식이섬유와 적당한 지방과 칼로리도 \n포함하고 있습니다."
+                android:text="고단백이며 많은 식이섬유와\n적당한 지방과 칼로리도 포함하고 있습니다."
                 android:textColor="@color/black"
                 android:textSize="9dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/lotte"
-                android:text="이 조합은 맛있고 영양가 있으며, 포함된 식이섬유는 \n소화와 포만감을 증가시키는데 도움을 줍니다\n영양소 및 칼로리 요구에 따라 적절한 비율로 \n조절할 수 있습니다. "
+                android:text="맛있고 영양가 있으며,\n소화와 포만감을 높이는데 도움을 줍니다\n칼로리에 따라 비율을 조절할 수 있습니다. "
                 android:textColor="@color/black"
                 android:textSize="10dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/lotte"
-                android:text="현미밥 100g,돼지안심 100g,계란후라이 1개 / 340-400kcal"
+                android:text="100g / 170~200kcal"
                 android:textColor="#FF8000"
-                android:textSize="8.5dp" />
+                android:textSize="10dp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="145dp"
-            android:layout_height="150dp"
-            android:layout_gravity="bottom|right"
-            android:layout_marginLeft="0dp"
-            app:srcCompat="@drawable/healthfood" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="145dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center|right"
+                app:srcCompat="@drawable/healthfood" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/lotte"
+                android:text="현미밥, 돼지 안심, 계란후라이"
+                android:textColor="#000000"
+                android:textSize="10dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
