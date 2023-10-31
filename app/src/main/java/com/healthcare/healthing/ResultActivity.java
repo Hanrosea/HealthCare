@@ -977,8 +977,6 @@ public class ResultActivity extends AppCompatActivity {
                                         updates.put("풀업", dataSnapshot.child("풀업").getValue(int.class) + num);
                                     }
 
-
-
                                     // 해당 데이터의 참조 경로에 updateChildren() 메소드를 호출하여 값을 수정합니다.
                                     memoToUpdateRef.updateChildren(updates);
                                     // user 데이터를 사용하여 출력
@@ -1016,8 +1014,6 @@ public class ResultActivity extends AppCompatActivity {
                     }else if(user.getName() == "풀업"){
                         updates.put("풀업", num);
                     }
-
-
 
                     // 해당 데이터의 참조 경로에 updateChildren() 메소드를 호출하여 값을 수정합니다.
                     memoToUpdateRef.updateChildren(updates);

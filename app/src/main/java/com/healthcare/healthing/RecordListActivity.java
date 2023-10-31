@@ -208,19 +208,31 @@ public class RecordListActivity extends AppCompatActivity {
 
                                     BarData barData = new BarData(); // 차트에 담길 데이터
 
-                                    entry_chart.add(new BarEntry(3, dataSnapshot.child("스쿼트").getValue(int.class))); //entry_chart1에 좌표 데이터를 담는다.
-                                    entry_chart.add(new BarEntry(2, dataSnapshot.child("푸쉬업").getValue(int.class)));
-                                    entry_chart.add(new BarEntry(1, dataSnapshot.child("풀업").getValue(int.class)));
+                                    if(dataSnapshot.child("스쿼트").getValue(int.class) != null){
+                                        entry_chart.add(new BarEntry(3, dataSnapshot.child("스쿼트").getValue(int.class))); //entry_chart1에 좌표 데이터를 담는다.
+                                    } else{
+                                        entry_chart.add(new BarEntry(3, 0));
+                                    }
+                                    if(dataSnapshot.child("푸쉬업").getValue(int.class) != null){
+                                        entry_chart.add(new BarEntry(2, dataSnapshot.child("푸쉬업").getValue(int.class)));
+                                    } else{
+                                        entry_chart.add(new BarEntry(2, 0));
+                                    }
+                                    if(dataSnapshot.child("풀업").getValue(int.class) != null){
+                                        entry_chart.add(new BarEntry(1, dataSnapshot.child("풀업").getValue(int.class)));
+                                    } else{
+                                        entry_chart.add(new BarEntry(1, 0));
+                                    }
 
-                                    if (dataSnapshot.child("스쿼트").getValue(int.class) != 0) {
-                                        entry_chart1.add(new BarEntry(3, dataSnapshot.child("스쿼트").getValue(int.class)));
-                                    }
-                                    if (dataSnapshot.child("푸쉬업").getValue(int.class) != 0) {
-                                        entry_chart1.add(new BarEntry(2, dataSnapshot.child("푸쉬업").getValue(int.class)));
-                                    }
-                                    if (dataSnapshot.child("풀업").getValue(int.class) != 0) {
-                                        entry_chart1.add(new BarEntry(1, dataSnapshot.child("풀업").getValue(int.class)));
-                                    }
+//                                    if (dataSnapshot.child("스쿼트").getValue(int.class) != 0) {
+//                                        entry_chart1.add(new BarEntry(3, dataSnapshot.child("스쿼트").getValue(int.class)));
+//                                    }
+//                                    if (dataSnapshot.child("푸쉬업").getValue(int.class) != 0) {
+//                                        entry_chart1.add(new BarEntry(2, dataSnapshot.child("푸쉬업").getValue(int.class)));
+//                                    }
+//                                    if (dataSnapshot.child("풀업").getValue(int.class) != 0) {
+//                                        entry_chart1.add(new BarEntry(1, dataSnapshot.child("풀업").getValue(int.class)));
+//                                    }
 
                                     entries.add(entry_chart.get(0));
                                     entries.add(entry_chart.get(1));
@@ -238,6 +250,7 @@ public class RecordListActivity extends AppCompatActivity {
 
                                     barDataSet.setDrawIcons(false);
                                     barDataSet.setDrawValues(true);
+
 
                                     if (24 < dataSnapshot.child("스쿼트").getValue(int.class) || 24 < dataSnapshot.child("푸쉬업").getValue(int.class) || 24 < dataSnapshot.child("풀업").getValue(int.class)) {
                                         axisLeft.setAxisMaximum(50); // 최댓값
