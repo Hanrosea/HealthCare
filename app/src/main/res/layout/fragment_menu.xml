@@ -54,7 +54,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="40dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -93,6 +93,7 @@
                             android:fontFamily="@font/lotte_bold"
                             android:textColor="#F5F5F5"/>
                         <TextView
+                            android:id="@+id/GD_N"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20.6 ~ 26.5"
@@ -104,7 +105,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="15dp"
                         android:gravity="left">
                         <TextView
                             android:layout_width="wrap_content"
@@ -114,6 +115,29 @@
                             android:fontFamily="@font/lotte_bold"
                             android:textColor="#F5F5F5"/>
                         <TextView
+                            android:id="@+id/GD_W"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="72kg"
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                    </LinearLayout>
+
+                    <!-- 정상 몸무게 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="left">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:text="감량 무게 : "
+                            android:fontFamily="@font/lotte_bold"
+                            android:textColor="#F5F5F5"/>
+                        <TextView
+                            android:id="@+id/GD_M"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="72kg"

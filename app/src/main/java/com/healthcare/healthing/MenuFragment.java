@@ -1,6 +1,5 @@
 package com.healthcare.healthing;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -361,6 +361,72 @@ public class MenuFragment extends Fragment {
         }
     }
 
+    private String ShowGD_N(String sex) {
+
+        String gd_n;
+
+        if ("남".equals(sex)) {
+            gd_n = "20.0~24.9";
+        } else if("여".equals(sex)) {
+            gd_n = "18.5~23.9";
+        } else {
+            return "";
+        }
+        return gd_n;
+    }
+
+    private String ShowGD_W(double height, String sex) {
+
+        // 성별에 따른 정상 몸무게 범위 설정
+        double minBMI;
+        double maxBMI;
+        if ("남".equals(sex)) {
+            minBMI = 20.0;
+            maxBMI = 24.9;
+        } else if ("여".equals(sex)) {
+            minBMI = 18.5;
+            maxBMI = 23.9;
+        } else {
+            return "";
+        }
+
+        // 키에 따른 몸무게 범위 계산
+        double minHeight = minBMI * Math.pow(height / 100.0, 2);
+        double maxHeight = maxBMI * Math.pow(height / 100.0, 2);
+
+        // 몸무게 범위를 소수점 1째 자리까지 형식화
+        DecimalFormat df = new DecimalFormat("0.0");
+        String formattedMinHeight = df.format(minHeight);
+        String formattedMaxHeight = df.format(maxHeight);
+
+        return formattedMinHeight + "~" + formattedMaxHeight + "kg";
+    }
+
+    private String ShowGD_M(double height, String sex, double Weight) {
+        // 성별에 따른 정상 몸무게 범위 설정
+        double maxBMI;
+        if ("남".equals(sex)) {
+            maxBMI = 24.9;
+        } else if ("여".equals(sex)) {
+            maxBMI = 23.9;
+        } else {
+            return "";
+        }
+
+        // 키에 따른 몸무게 범위 계산
+        double maxWeight = maxBMI * Math.pow(height / 100.0, 2);
+
+        // 현재 몸무게와 최대 몸무게의 차이 계산
+        DecimalFormat df = new DecimalFormat("0.0");
+        double weightDifference = Weight - maxWeight;
+        if(weightDifference < 0){
+            return "정상입니다.";
+        }else{
+            String GD_M = df.format(weightDifference);
+            return GD_M;
+        }
+    }
+
     // BMI 지수 색상
     private int getBackgroundColorForStat(String stat, PieChart pieChart) {
         int backgroundColor; // 기본 배경 색상 (예시: 흰색)
@@ -408,6 +474,13 @@ public class MenuFragment extends Fragment {
 
         TextView Stat = view.findViewById(R.id.StatTV);
         TextView BMI_N = view.findViewById(R.id.BMI_N);
+        TextView GD_N = view.findViewById(R.id.GD_N);
+        TextView GD_W = view.findViewById(R.id.GD_W);
+        TextView GD_M = view.findViewById(R.id.GD_M);
+
+        GD_N.setText(ShowGD_N(sex));
+        GD_W.setText(ShowGD_W(height, sex));
+        GD_M.setText(ShowGD_M(height, sex, weight));
 
         String formattedValue = String.format("%.1f", progressValue);
         Stat.setText(stat);
